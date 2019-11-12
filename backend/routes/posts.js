@@ -45,8 +45,15 @@ router.post("", multer({storage: storage}).single("image") ,(req,res,next) => {
 });
 
 router.get("",(req , res , next) =>{
-  const posts = Post.find()
-  .then(documents => {
+
+  console.log(req.query);
+  const pageSize= +req.query.pagesize;
+  const currentPage = +req.query.page;
+  const postQuery = Post.find();
+  if (pageSize && currentPage){
+    postQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);
+  }
+  postQuery.then(documents => {
 
     console.log(documents);
 

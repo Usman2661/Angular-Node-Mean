@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatCardModule , MatButtonModule ,
   MatToolbarModule ,
   MatExpansionModule,
+  MatPaginatorModule,
   MatProgressSpinnerModule} from '@angular/material';
 import {HttpClientModule } from '@angular/common/http';
 
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatProgressSpinnerModule,
     AppRoutingModule,
     FormsModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
     MatInputModule,
     MatToolbarModule,
