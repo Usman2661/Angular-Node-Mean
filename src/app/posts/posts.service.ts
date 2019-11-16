@@ -24,13 +24,16 @@ export class PostsService {
             title: post.title,
             content: post.content,
             id: post._id,
-            imagePath: post.imagePath
+            imagePath: post.imagePath,
+            creator: post.creator
           };
       }), maxPosts: postData.maxPosts
     };
 
     }))
     .subscribe((tansformedPostData) => {
+
+      console.log(tansformedPostData);
       this.posts = tansformedPostData.posts;
       this.PostsUpdated.next({posts: [...this.posts], postCount: tansformedPostData.maxPosts});
     });
