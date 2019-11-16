@@ -64,7 +64,7 @@ export class PostsService {
     return this.http.delete('http://localhost:3000/api/posts/' + id);
   }
   getPost(id: string) {
-    return this.http.get<{_id: string, title: string, content: string , imagePath: string}>('http://localhost:3000/api/posts/' + id);
+    return this.http.get<{_id: string, title: string, content: string , imagePath: string , creator: string}>('http://localhost:3000/api/posts/' + id);
   }
 
   updatePost(id: string, title: string , content: string , image: File | string ) {
@@ -81,11 +81,12 @@ export class PostsService {
         id: id,
         title: title,
         content: content,
-        imagePath: image
+        imagePath: image,
+        creator: null
       };
 
     }
-    const post: Post = { id: id , title: title, content: content , imagePath: null};
+    const post: Post = { id: id , title: title, content: content , imagePath: null , creator: null};
 
     this.http.put('http://localhost:3000/api/posts/' + id, postData)
     .subscribe((response) => {
