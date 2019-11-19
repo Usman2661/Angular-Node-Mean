@@ -11,10 +11,7 @@ const userRoutes = require ("./routes/user")
 
 app.use(bodyParser.json());
 
-
-
-
-mongoose.connect("mongodb+srv://usman:pakistan2546@cluster0-qklz2.mongodb.net/node-angular?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://usman:"+process.env.MONGO_PASS+"@cluster0-qklz2.mongodb.net/node-angular?retryWrites=true&w=majority")
 .then(() => {
   console.log('Connected to the database!!!');
 })
@@ -23,10 +20,6 @@ mongoose.connect("mongodb+srv://usman:pakistan2546@cluster0-qklz2.mongodb.net/no
   console.log(error);
 
 });
-
-// DB Password 19v3u7nAokDvLKTO
-
-//Giving access to the images
 
 app.use("/images", express.static(path.join("backend/images")));
 
